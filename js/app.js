@@ -1,3 +1,4 @@
+// function store of data set  
 const loadProducts = () => {
   const data = [{
     "id": 1,
@@ -220,8 +221,9 @@ const loadProducts = () => {
       "count": 145
     }
   }];
+
+  // call function for display data-object 
   showProducts(data);
-  console.log(data);
 };
 
 
@@ -233,13 +235,17 @@ const showProducts = (products) => {
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
+
+    // added div-html for all card properties 
     div.innerHTML = `
-    <class="card border-0" style="background-color:green;">
+  <div class="card border-0">
+
            <img class="product-image m-auto" src=${image}></img>
-        <div class="card-body">
-          
+
+        <div class="card-body">        
                 <h5 style="font-size:18px;" class="fw-bold">${product.title}</h5>
                 <hr class="w-100">
+
                 <h6>Category: ${product.category}</h6> 
 
                 <h6><i class="fas fa-star text-warning"></i>Rating:<span class="fw-bold">${product.rating.rate}</span> out of 5 <br>
@@ -251,15 +257,25 @@ const showProducts = (products) => {
 
         <div>
           <h5>Price: $<span class="fw-bold">${product.price}</span> </h5>
+
           <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class=" btn btn-warning text-white fs-6 ">Add to cart<i class="fas fa-shopping-cart"></i></button>     
+
+
           <button id="details-btn"  style="width: 80px; padding: 5px;"  class="btn bg-white mt-auto text-dark btn-outline-warning fs-6">Details
           </button>
         </div>
+   </div>
 `;
+
+
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+// count for number of added product 
 let count = 0;
+
+//call function for my-cart operation 
 const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
@@ -268,6 +284,7 @@ const addToCart = (id, price) => {
   document.getElementById("total-Products").innerText = count;
 };
 
+// call function for getting value by id 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
@@ -320,6 +337,5 @@ document.getElementById('buy-now').addEventListener('click', () => {
 
 });
 
-
-
+// calling data storage funciton 
 loadProducts();
