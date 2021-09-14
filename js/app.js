@@ -234,19 +234,28 @@ const showProducts = (products) => {
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `
-    <div class="card h-100 border-0" style="background-color:#fff9f1">
+    <class="card border-0" style="background-color:green;">
            <img class="product-image m-auto" src=${image}></img>
-       <div class="card-body">
-    
-      <h3>${product.title}</h3>      
-      <h5>Category: ${product.category}</h5>      
-      <h4>Rating: ${rating(product.rating.rate)}/5 & <i class="fas text-dark fa-user-tie"></i> Reviews: ${product.rating.count}</h4>
-      <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class=" btn btn-warning text-white fs-4 ">Add to cart<i class="fas fa-shopping-cart"></i></button>
-      <button id="details-btn" style="width: 80px; padding: 5px;"  class="btn bg-white text-dark btn-outline-warning fs-4 ">Details</button></div>
-  </div>
-</div>
-      `;
+        <div class="card-body">
+          
+                <h5 style="font-size:18px;" class="fw-bold">${product.title}</h5>
+                <hr class="w-100">
+                <h6>Category: ${product.category}</h6> 
+
+                <h6><i class="fas fa-star text-warning"></i>Rating:<span class="fw-bold">${product.rating.rate}</span> out of 5 <br>
+                
+                <i class="fas text-warning fa-user-tie"></i> Reviews: <span class="fw-bold">${product.rating.count}</span>
+                </h6>
+        </div>
+
+
+        <div>
+          <h5>Price: $<span class="fw-bold">${product.price}</span> </h5>
+          <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class=" btn btn-warning text-white fs-6 ">Add to cart<i class="fas fa-shopping-cart"></i></button>     
+          <button id="details-btn"  style="width: 80px; padding: 5px;"  class="btn bg-white mt-auto text-dark btn-outline-warning fs-6">Details
+          </button>
+        </div>
+`;
     document.getElementById("all-products").appendChild(div);
   }
 };
@@ -281,7 +290,6 @@ const setInnerText = (id, value) => {
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
-  console.log("tax", priceConverted);
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", priceConverted * 0.2);
@@ -311,9 +319,7 @@ document.getElementById('buy-now').addEventListener('click', () => {
   document.getElementById("total").textContent = 0;
 
 });
-function rating(rate){
- return rate;
 
-};
+
 
 loadProducts();
