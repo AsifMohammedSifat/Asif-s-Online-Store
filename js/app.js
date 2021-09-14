@@ -1,4 +1,4 @@
-// function store of data set  
+// storage-function of data object   
 const loadProducts = () => {
   const data = [{
     "id": 1,
@@ -238,7 +238,7 @@ const showProducts = (products) => {
 
     // added div-html for all card properties 
     div.innerHTML = `
-  <div class="card border-0">
+  <div class="card border-0" style="background-color:#fff9f4;">
 
            <img class="product-image m-auto" src=${image}></img>
 

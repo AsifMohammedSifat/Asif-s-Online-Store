@@ -15,6 +15,7 @@
 body {
   overflow-x: hidden;
   padding:50px;
+  background-color: #f7e8db;
 }
 
  /* style for brand name  */
@@ -44,7 +45,7 @@ body {
   box-shadow: 4px 4px 7px gray;
   border-radius: 10px;
   height: 100%;
-  background-color:#fff9f4;
+  background-color: #fff9f4;
 }
 
 .product:hover {
