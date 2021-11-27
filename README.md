@@ -7,6 +7,6 @@
 ---
 >When the user selects a product, Then dynamically update the cart price.
 ---
->We treat free for poor people
+>We offer discount for poor people
 ---
 >Tools: Html,Css, Bootstrap,Java-Script
